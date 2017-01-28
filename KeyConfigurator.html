@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Schlüssel...</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container body-content">
+        <h3>Kleiner Schlüsselkonfigurator</h3>
+        <div class="form-group">
+            <label>Anzahl Schlüssel/Räume</label>
+            <input type="number" id="numberofkeysDropDownList" class="form-control" data-bind="value: NumberOfRooms" /><br />
+            <button class="btn btn-success" id="buildmatrixButton" data-bind="click: CreateMatrix">Matrix erstellen</button>
+        </div>
+        <div class="form-group" data-bind="visible: MatrixVisible">
+            <table class="table table-hover table-response table-bordered" data-bind="foreach: $root.Rooms">
+                <tr data-bind="foreach: Keys">
+                    <td><input type="checkbox" data-bind="checked: Selected" /></td>
+                </tr>
+            </table>
+            <button class="btn btn-danger" data-bind="click: CalculateKindOfKeys">Berechnen</button><br />
+            <p>
+                Gewählte Schlüssel:
+                <span data-bind="text: ChoosenKeyCombination"></span>
+            </p>
+            <div data-bind="visible: MainKeysVisible">
+                <h5>Hauptschlüssel:</h5>
+                <ul data-bind="foreach: MainKeys">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="bower_components/requirejs/require.js"></script>
+    <script src="require-config.js"></script>
+    <script>
+        require(["jquery", "knockout", "Models/Room", "Services/KeyAnalyserService", "KeyConfiguratorViewModel"]);
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "outDir": "",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "amd",
+    "target": "es5",
+    "removeComments": true
+  },
+  "files": [
+    "require-config.ts",
+    "ViewModels/KeyConfiguratorViewModel.ts",
+    "Models/Room.ts",
+    "Models/Key.ts",
+    "Services/IKeyAnalyserService.ts", 
+    "Services/KeyAnalyserService.ts" 
+  ]
+}
